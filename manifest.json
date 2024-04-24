@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Focus",
+  "description": "Only allow one tab when browsing to minimize distractions",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "popup.js"
+  }
+}

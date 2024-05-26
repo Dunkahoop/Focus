@@ -1,6 +1,6 @@
 //save newly created tab
-chrome.tabs.onCreated.addListener(function(tabId) {
-  //var tabId = tab.id;
+chrome.tabs.onCreated.addListener(function(tab) {
+  var tabId = tab.id;
   //check each tab
   chrome.tabs.query({currentWindow: true}, function(tabs) {
     tabs.forEach(function(tab){
@@ -8,7 +8,18 @@ chrome.tabs.onCreated.addListener(function(tabId) {
       if(tab.id !== tabId) chrome.tabs.remove(tab.id);
     });
   });
-});
+})
+
+// chrome.windows.onCreated.addListener(function(newWindow) {
+//   //var tabId = tab.id;
+//   //check each tab
+//   chrome.windows.query({currentWindow: true}, function(windows) {
+//     windows.forEach(function(window){
+//       //if tab is not newly created tab, delete it
+//       if(window.id !== newWindow) chrome.windows.remove(window.id);
+//     });
+//   });
+// });
 
 //save newly created window
 chrome.windows.onCreated.addListener((newWindow) => {
